@@ -1,6 +1,4 @@
-import { useState } from "react";
-
-export const ContactForm = () => {
+export const ContactForm = (props) => {
   const { handleChange, sendForm, form } = props;
   return (
     <>

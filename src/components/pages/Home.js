@@ -2,7 +2,14 @@ import { ContactForm } from "./ContactForm";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 export const Home = () => {
-  let intialValues = { name: "", email: "" };
+  let intialValues = {
+    name: "",
+    email: "",
+    option: "",
+    select: "",
+    message: "",
+    terms: false,
+  };
   const [form, setForm] = useState(intialValues);
 
   const handleChange = (e) => {
@@ -14,13 +21,9 @@ export const Home = () => {
 
   const sendForm = (e) => {
     e.preventDefault();
+    // console.log(form);
+    setForm(form);
     console.log(form);
-
-    const { name, email } = form;
-    const [...data] = form;
-    data.push({ name, email });
-    setForm(data);
-    console.log(data);
   };
 
   return (
