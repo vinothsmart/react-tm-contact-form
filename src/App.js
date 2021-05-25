@@ -1,9 +1,10 @@
 import "./App.css";
+import { ContactForm } from "./components";
 
 function App() {
   return (
     <>
-      <h1>Contact Form</h1>
+      <ContactForm />
     </>
   );
 }
