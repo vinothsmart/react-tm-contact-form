@@ -1,7 +1,11 @@
 import { ContactForm } from "./ContactForm";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
+import { Message } from "./Message";
+
 export const Home = () => {
+  const history = useHistory();
+
   let intialValues = {
     name: "",
     email: "",
@@ -24,6 +28,7 @@ export const Home = () => {
     // console.log(form);
     setForm(form);
     console.log(form);
+    history.push("/message");
   };
 
   return (
