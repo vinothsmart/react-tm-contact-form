@@ -1,5 +1,5 @@
 import "./App.css";
-import { ContactForm, Login } from "./components";
+import { Home, ContactForm, Login } from "./components";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
         {/* <ContactForm />
         <Login /> */}
         <Switch>
-          <Route exact path="/" component={ContactForm} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
         </Switch>
       </Router>
