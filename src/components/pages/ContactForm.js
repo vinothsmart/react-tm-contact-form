@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 export const ContactForm = () => {
+  const { handleChange, sendForm, form } = props;
   return (
     <>
       {/* <div className="container">
@@ -6,17 +9,27 @@ export const ContactForm = () => {
           <h1> ContactForm </h1>
         </div>
       </div> */}
-      <form>
+      <form onSubmit={sendForm}>
         <h3>Contact Form</h3>
 
         <div class="form-group">
           <label className="form-label">Your Name:</label>
-          <input name="name" className="form-control" />
+          <input
+            name="name"
+            className="form-control"
+            onChange={handleChange}
+            value={form.name}
+          />
         </div>
 
         <div class="form-group">
           <label className="form-label">Your Best Email:</label>
-          <input name="email" className="form-control" />
+          <input
+            name="email"
+            className="form-control"
+            onChange={handleChange}
+            value={form.email}
+          />
         </div>
 
         <label className="form-label">Select your membership option:</label>

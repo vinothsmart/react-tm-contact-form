@@ -1,6 +1,28 @@
 import { ContactForm } from "./ContactForm";
-
+import { Link } from "react-router-dom";
+import { useState } from "react";
 export const Home = () => {
+  let intialValues = { name: "", email: "" };
+  const [form, setForm] = useState(intialValues);
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const sendForm = (e) => {
+    e.preventDefault();
+    console.log(form);
+
+    const { name, email } = form;
+    const [...data] = form;
+    data.push({ name, email });
+    setForm(data);
+    console.log(data);
+  };
+
   return (
     <>
       {/* <div className="container">
@@ -12,9 +34,11 @@ export const Home = () => {
         <div className="row">
           <div className="col-md-12">
             <div className="pull-right">
-              <button class="btn btn-default">
-                <i className="glyphicon glyphicon-user"></i> Log In
-              </button>
+              <Link to={"login"}>
+                <button class="btn btn-default">
+                  <i className="glyphicon glyphicon-user"></i> Log In
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -28,7 +52,11 @@ export const Home = () => {
             />
           </div>
           <div className="col-md-8">
-            <ContactForm />
+            <ContactForm
+              handleChange={handleChange}
+              sendForm={sendForm}
+              form={form}
+            />
           </div>
         </div>
       </div>
